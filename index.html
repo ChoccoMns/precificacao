@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precificador de Produtos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <button class="nav-btn active" data-page="calcular">Calcular Custo</button>
+    <button class="nav-btn" data-page="adicionar">Adicionar Produto</button>
+    <button class="nav-btn" data-page="lista">Lista de Produtos</button>
+    <button class="nav-btn" data-page="historico">Histórico</button>
+  </nav>
+
+  <!-- Página Calcular Custo -->
+  <div id="calcular" class="page active">
+    <div class="container">
+      <h1>Calcular Custo</h1>
+      <div class="form-group">
+        <label for="calculo-nome">Produto:</label>
+        <select id="calculo-nome">
+          <option value="">Selecione um produto</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="quantidade-usada">Quantidade Usada:</label>
+        <input type="number" id="quantidade-usada" min="0">
+      </div>
+      <div class="form-group">
+        <label for="margem">Margem de Lucro (%):</label>
+        <input type="number" id="margem" step="0.1" min="0">
+      </div>
+      <button id="calcular-btn">Calcular</button>
+      <div id="resultado"></div>
+    </div>
+  </div>
+
+  <!-- Página Adicionar Produto -->
+  <div id="adicionar" class="page">
+    <div class="container">
+      <h1>Adicionar Produto</h1>
+      <div class="form-group">
+        <label for="nome">Nome do Item:</label>
+        <input type="text" id="nome">
+      </div>
+      <div class="form-group">
+        <label for="quantidade">Quantidade Comprada:</label>
+        <input type="number" id="quantidade" min="1">
+      </div>
+      <div class="form-group">
+        <label for="preco">Preço Total (R$):</label>
+        <input type="number" id="preco" min="0.01" step="0.01">
+      </div>
+      <button id="adicionar-btn">Adicionar</button>
+    </div>
+  </div>
+
+  <!-- Página Lista de Produtos -->
+  <div id="lista" class="page">
+    <div class="container">
+      <h1>Produtos Cadastrados</h1>
+      <div id="lista-produtos"></div>
+    </div>
+  </div>
+
+  <!-- Página Histórico -->
+  <div id="historico" class="page">
+    <div class="container">
+      <div class="historico-header">
+        <h1>Histórico de Cálculos</h1>
+        <button id="limpar-historico">Limpar Histórico</button>
+      </div>
+      <div id="historico-calculadora"></div>
+    </div>
+  </div>
+
+  <script type="module" src="renderer.js"></script>
+</body>
+</html>
